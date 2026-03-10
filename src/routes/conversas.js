@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
   try {
     const [rows] = await db.query(
       'SELECT * FROM chat_whats WHERE data_chat BETWEEN ? AND ?',
-      [data_inicial, data_final]
+      [data_inicial, `${data_final} 23:59:59`]
     );
     res.json(rows);
   } catch (err) {
